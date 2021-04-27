@@ -1,0 +1,19 @@
+<!--pages/mgLiveSign/mgLiveSign.wxml-->
+<view class="header">
+  <cover-image class="header-img" src="./header.png"></cover-image>
+</view>
+<view class="sign-view">
+  <view class="form_item">
+    <input type='text' placeholder='姓名' name='name' bindinput="nameInput"></input>
+  </view>
+  <view class="form_item">
+    <input type='text' placeholder='电话' name='phone' bindinput="phoneInput"></input>
+  </view>
+  <view class="form_item" bindtap="showPopup">
+    <input type='text' placeholder='意向车型' name='car' disabled="disabled" value="{{carAllName}}"></input>
+  </view>
+  <view>
+    <button class="changePwd" bindtap="okSubmitBtn">一键咨询优惠详情</button>
+  </view>
+</view>
+<selectcartype id="selectcartype" price="{{price}}"  bindnumChange="numChange"></selectcartype>

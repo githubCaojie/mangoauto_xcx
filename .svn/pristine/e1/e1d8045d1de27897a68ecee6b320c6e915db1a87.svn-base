@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "留资询底价",
+  "usingComponents": {
+    "selectcartype": "/components/selectcartype/selectcartype"
+  }
+}

@@ -1,0 +1,7 @@
+<!--pages/userdatum/userdatum.wxml-->
+<view class="producthd">
+    <view class='middle-info'>
+        <view class="hdonglist">手机号</view>
+        <view class="hdonglist">密码设置</view>
+    </view>
+</view>

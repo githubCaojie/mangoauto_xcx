@@ -1,0 +1,89 @@
+/* pages/RemindingPrice/RemindingPrice.wxss */
+.userheader {
+  background-color: rgb(255, 255, 255);
+  height: 430rpx;
+}
+.user_photo {
+  width: 100%;
+}
+.middle-info {
+  padding: 0 50rpx; 
+  background-color: #fff;
+}
+.hdonglist {
+  padding: 24rpx;
+  font-size: 32rpx;
+  position: relative;
+  background: #fff;
+  margin-top: 0;
+  padding-left: 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  display: flex;
+  height: 50rpx;
+}
+.hdonglist .label{
+  width: 160rpx;
+  margin-right: 16rpx;
+  display: inline-block;
+  margin-top: 5rpx;
+  color: #515151;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+.hdonglist input, .hdonglist view{
+  width: 526rpx;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28rpx;
+}
+.hdonglist picker{
+  width: 526rpx;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28rpx;
+  height: 1.4rem;
+  line-height: 1.4rem;
+}
+.hdonglist picker view.picker{
+  width: auto;
+}
+.hdonglist slider{
+  height: 1.4rem;
+  line-height: 1.4rem;
+  margin: 0;
+  padding: 0;
+}
+.comment-btn{
+  width: 600rpx;
+  margin: 50rpx auto;
+}
+.comment-btn button{
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+}
+.comment-btn button::after {
+  border: 0;
+}
+.carList-block{
+  position: absolute;
+  width: 526rpx;
+  background: #fff;
+  left: 160rpx;
+  top: 102rpx;
+  z-index: 9;
+  border: 1rpx solid #b1b1b1;
+  color: #000;
+  max-height: 317rpx;
+  overflow: auto;
+}
+.carList-block .carli{
+  height: 79rpx;
+  line-height: 79rpx;
+  text-indent: 15rpx;
+  border-bottom: 1rpx solid #b1b1b1;
+}
+.carList-block .carli:last-child{
+  border: none;
+}

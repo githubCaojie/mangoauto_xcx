@@ -1,0 +1,8 @@
+var Sub = {
+  toSub :function(value){
+    return value.substring(0,10)
+  }
+};
+module.exports = {
+  toSub: Sub.toSub
+}

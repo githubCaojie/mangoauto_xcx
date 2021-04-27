@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "芒果汽车降价提醒",
+  "backgroundColor": "#ffffff",
+  "usingComponents": {
+    "selectcartype": "/components/selectcartype/selectcartype"
+  }
+}

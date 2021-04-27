@@ -1,0 +1,100 @@
+<!--pages/carOrderDetails/carOrderDetails.wxml-->
+<movable-area>
+    <movable-view direction="all" wx:if='{{OrderInfo.HasBonus}}'>
+        <image class='bonus' src='../../images/bonus.png' bindtap='bindBonus'></image>
+    </movable-view>
+
+    <view class="container {{pageLoaded?'':'transparent'}}">
+        <view class="xuanzhed pb40" hidden="{{!LogisticsData}}">
+            <navigator url="../logistics/logistics?orderid={{OrderInfo.OrderId}}">
+                <view class="hdonglist hdonglist1">
+                    <text class="iconfont icon-delivery"></text>
+                    <view class="classnames">
+                        <text class="yhname" wx:if="{{LogisticsData.traces[0].acceptStation!=null}}">{{LogisticsData.traces[0].acceptStation}}</text>
+                        <text class="yhname" wx:else>{{OrderInfo.ExpressCompanyName}}: {{OrderInfo.ShipOrderNumber}}</text>
+                        <text class="acceptTime" wx:if="{{LogisticsData.traces[0].acceptTime!=null}}">{{LogisticsData.traces[0].acceptTime}}</text>
+                    </view>
+                    <text class="iconfont icon-arrow_right"></text>
+                </view>
+            </navigator>
+        </view>
+
+        <!--商品清单-->
+        <view class="orderlist">
+            <view class="orderlisttile">
+                <view class="orderhao">
+                    订单编号：20170227260884
+                    <view class="status">{{OrderInfo.StatusText}}</view>
+                </view>
+            </view>
+            <block wx:for="{{OrderInfo.LineItems}}" wx:key="Id" wx:for-index="i">
+                <view class="orderlistcont {{(i+1)==OrderInfo.LineItems.length?'lastitem':''}}">
+                    <image src="{{item.Image}}" data-productid="{{item.ProductId}}" data-activeid="{{item.ActiveId}}" data-activetype="{{item.ActiveType}}" bindtap="goToProductDetail"></image>
+                    <view class="orderlisc" data-productid="{{item.ProductId}}" data-activeid="{{item.ActiveId}}" data-activetype="{{item.ActiveType}}" bindtap="goToProductDetail">
+                        <view class="ordername">起亚K2 2017款 三厢 1.4L AT GLS</view>
+                        <view class="ordersize">
+                          <view>
+                              外饰颜色：透明白
+                          </view>
+                          <view>
+                              内饰颜色：黑色/灰色
+                          </view>
+                        </view>
+                        <text>￥{{item.Price}}</text>
+                    </view>
+                </view>
+            </block>
+            <view class="orderlistzong song" wx:if="{{SendGifts && SendGifts.length>0}}">
+                <image src="/images/order_09.jpg"></image>{{SendGifts}}
+            </view>
+        </view>
+        <view class="submfs submfs1">
+            <view class="yunfei">
+                <view class="yunfeil">商品总金额</view>
+                <view class="yunfeir"> ￥82900.00</view>
+            </view>
+            <view class="yunfei">
+                <view class="yunfeil">订金</view>
+                <view class="yunfeir"> ￥1000.00</view>
+            </view>
+            <view class="yunfei">
+                <view class="yunfeil">应付尾款</view>
+                <view class="yunfeir"> ￥81900.00</view>
+            </view>
+            <view class="yunfei">
+                <view class="yunfeil">应付金额</view>
+                <view class="yunfeir"> ￥1000.00</view>
+            </view>
+        </view>
+
+        <view class="submfs submfs1 mb24">
+            <view class="yunfei">
+                <view class="yunfeil">订单号</view>
+                <view class="yunfeir">{{OrderInfo.OrderId}} </view>
+            </view>
+            <view class="yunfei">
+                <view class="yunfeil">订单状态</view>
+                <view class="yunfeir">{{OrderInfo.StatusText}} </view>
+            </view>
+            <view class="yunfei">
+                <view class="yunfeil">支付方式</view>
+                <view class="yunfeir">在线支付</view>
+            </view>
+            <view class="yunfei">
+                <view class="yunfeil">下单时间</view>
+                <view class="yunfeir">2017-02-27 11:19:08 </view>
+            </view>
+        </view>
+        <view class="submfs submfs1 mb24">
+            <view class="yunfei title">购买人信息</view>
+            <view class="yunfei">
+                <view class="yunfeil">购买人</view>
+                <view class="yunfeir">曹杰</view>
+            </view>
+            <view class="yunfei">
+                <view class="yunfeil">手机号</view>
+                <view class="yunfeir">151162417111</view>
+            </view>
+        </view>
+    </view>
+</movable-area>

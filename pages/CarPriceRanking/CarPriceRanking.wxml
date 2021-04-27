@@ -1,0 +1,73 @@
+<!--pages/CarPriceRanking/CarPriceRanking.wxml-->
+<wxs module="Fix" src="fix.wxs"></wxs>
+<wxs module="Sub" src="sub.wxs"></wxs>
+<selectcartype id="selectcartype" price="{{price}}"  bindnumChange="chooseCar"></selectcartype>
+<view>
+  <view class="nav">
+    <view class="tab">
+      <view class="{{up_down=='down'?'active':''}}" bindtap="navUpdate" data-navid="down">降价榜</view>
+      <view class="{{up_down=='up'?'active':''}}" bindtap="navUpdate" data-navid="up">涨价榜</view>
+    </view>
+    <view class="search iconfont icon-searchempty iconsearch font40" bindtap="showPopup"></view>
+  </view>
+  <view class="sort">
+    <label>排序：</label>
+    <view class="ul">
+      <text class="{{orderby==0?'active':''}}" bindtap="sortBind" data-sortid="0">最新</text>
+      <text class="{{orderby==1?'active':''}}" bindtap="sortBind" data-sortid="1">变幅大</text>
+      <text class="{{orderby==2?'active':''}}" bindtap="sortBind" data-sortid="2">销量大</text>
+      <text class="{{orderby==3?'active':''}}" bindtap="sortBind" data-sortid="3">价格低</text>
+    </view>
+  </view>
+  <view class="tabs-container">
+    <view class="content-slide">
+      <view class="ul">
+        <view class="li" wx:for="{{cardata}}" wx:key="{{item.id}}">
+          <label>首付{{Fix.toFix(item.this_price*0.2)}}万起</label>
+          <view class="car">
+            <view class="media">
+              <image src="{{item.picurl}}"></image>
+              <view class="updatetime">{{Sub.toSub(item.c_time)}}价格变动</view>
+            </view>
+            <view class="carmsg">
+              <view class="carname">{{item.name}}</view>
+              <view class="carprice">
+                <view class="thisprice"><text>¥</text>{{item.this_price}}万</view>
+                <view class="lastprice"><text>¥</text>{{item.last_price}}万</view>
+                <view class="{{up_down=='up'?'upprice':'downprice'}}">
+                  <image hidden="{{up_down != 'up'}}" src="images/Ranking-up.png"></image>
+                  <image hidden="{{up_down != 'down'}}" src="images/Ranking-down.png"></image>
+                  {{item.diff_price}}元
+                </view>
+              </view>
+              <view class="carsubmit">
+                <button bindtap="counter" data-pp="{{item.pp}}" data-cl="{{item.cl}}" data-cx="{{item.cx}}" data-cxname="{{item.cx_name}}" data-clname="{{item.cl_name}}" data-ppname="{{item.pp_name}}" ><image src="images/carpriceRanking-submit1.png"></image></button>
+                <button bindtap="valence" data-type="on" data-carprice="{{item.this_price}}" data-carname="{{item.name}}" data-carimg="{{item.picurl}}"><image src="images/carpriceRanking-submit2.png"></image></button>
+              </view>
+            </view>
+          </view>
+          <image class="loseicon" wx:if="{{item.valid_flag=='0'}}" src="images/failure-icon.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="loadtip">{{loadtipArray}}</view>
+  </view>
+  <view class="tanc" hidden="{{chooseCarname!=''?false:true}}">
+    <view class="tancbg" bindtap="valence" data-type="off"></view>
+    <view class="getmobile">
+      <image class="topimg" src="images/touc-header.png"></image>
+      <view class="topname">降的不够多？告诉我们你的预期降幅!</view>
+      <image class="carimg" src="{{chooseCarimg}}" mode="aspectFill"></image>
+      <view class="carname">{{chooseCarname}}</view>
+      <view class="getview">
+        <label>降幅：</label>
+        <slider block-size="18" bindchange="slider4change" activeColor="#00a3ff" min="1000" max="20000" step="1000" show-value/>
+      </view>
+      <view class="getview">
+        <label>电话：</label>
+        <input class="weui-input"  bindinput="mobileInput" placeholder="请输入联系电话" value="{{mobile}}"/>
+      </view>
+      <button bindtap="btnOkClient">确定</button>
+    </view>
+  </view>
+</view>

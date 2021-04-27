@@ -1,0 +1,2 @@
+<!--pages/Insurance/Insurance.wxml-->
+<web-view src="https://wx.mangoauto.com.cn/UsersCenter/Insurance.aspx"></web-view>

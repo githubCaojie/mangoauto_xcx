@@ -1,0 +1,17 @@
+<!--pages/oldAndNew/getNewUser.wxml-->
+<view class="page">
+  <selectcartype id="selectcartype" bindnumChange="chooseCar"></selectcartype>
+  <image class="page_top" src="images/top.png"></image>
+  <view class="page__bd page_main">
+    <view class="weui-form">
+      <view class="weui-form__control-area">
+        <image src="images/msg.png" alt class="msg"></image>
+        <button wx-if="{{isBindingType}}" class="weui-btn" bindtap="bindingTop">是否绑定</button>
+        <button wx-if="{{isMe}}" class="weui-btn">无法推荐给自己哦</button>
+        <button wx-if="{{isBinding}}" class="weui-btn">您已绑定其他用户</button>
+        <image src="images/4007507500.png" alt class="mgcall"></image>
+      </view>
+    </view>
+  </view>
+  <image src="images/footer-qr-logo.png" class="logo"></image>
+</view>

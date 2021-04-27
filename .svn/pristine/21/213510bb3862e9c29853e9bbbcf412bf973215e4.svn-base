@@ -1,0 +1,53 @@
+<!--pages/oldAndNew/oldAndNew.wxml-->
+<view class="page">
+  <selectcartype id="selectcartype" bindnumChange="chooseCar"></selectcartype>
+  <image class="page_top" src="images/top.png"></image>
+  <view class="page__bd page_main">
+    <view class="weui-form">
+      <view class="weui-form__text-area">
+        <view class="weui-form__title">购车信息</view>
+      </view>
+      <view class="weui-form__control-area">
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">意向车型</view>
+          </view>
+          <view class="weui-cell__bd" bindtap="showPopup">
+            <input class="weui-input" placeholder="请选择用户意向车型" value="{{car}}"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">客户姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="nameInput" placeholder="请输入购车人姓名" value="{{userName}}"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">联系电话</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="mobileInput" placeholder="请输入购车人电话" value="{{userMobile}}"/>
+          </view>
+        </view>
+        <view class="weui-btn" bindtap="btnOkClient">提交购车意向</view>
+        <image src="images/4007507500.png" alt class="mgcall"></image>
+      </view>
+    </view>
+    <image src="images/msg.png" alt class="msg"></image>
+  </view>
+  <view class="weui-tab">
+    <view class="weui-tabbar">
+      <view class="weui-tabbar__item weui-bar__item_on">
+        <image src="images/shouyeyong.png" alt class="weui-tabbar__icon"></image>
+        <view class="weui-tabbar__label">首页</view>
+      </view>
+      <view class="weui-tabbar__item">
+        <image src="images/wodeyong.png" alt class="weui-tabbar__icon"></image>
+        <view class="weui-tabbar__label">我的</view>
+      </view>
+    </view>
+  </view>
+</view>

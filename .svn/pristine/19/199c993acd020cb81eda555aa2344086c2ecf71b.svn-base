@@ -1,0 +1,63 @@
+<!--pages/RemindingPrice/RemindingPrice.wxml-->
+<view class="userheader" id="topt">
+  <image class="user_photo" src="../../images/RemindingPriceHead.png" mode="aspectFit"></image>
+</view>
+<view class="divgas">
+  <view></view>
+</view>
+<view class="middle-info">
+  <view class="hdonglist">
+    <text class="label">选择车型</text>
+    <input 
+      placeholder="品牌"
+      placeholder-class="placeholderColor"
+      type="text"
+      disabled="disabled"
+      value="{{dataCarName}} {{carSerieName}} {{cartypeName}}"
+      bindtap="bindCarHandle"></input>
+  </view>
+  <view class="hdonglist">
+    <text class="label">降价幅度</text>
+    <view class="body-view">
+        <slider block-size="18" bindchange="slider4change" min="1000" max="10000" step="1000" show-value/>
+    </view>
+  </view>
+  <view class="hdonglist">
+    <text class="label">短信通知</text>
+    <input placeholder="请输入您的手机号码" bindinput="mobileInput" placeholder-class="placeholderColor" value="{{userMobile}}"  type="text"></input>
+  </view>
+</view>
+<view class="comment-btn">
+    <button class="baseRedBgColor btn-confirm" bindtap="okSubmit">降价提醒我</button>
+</view>
+<view class="brand-list" hidden="{{isShowBrand}}">
+  <!-- 左侧列表部分 -->
+  <scroll-view class="contentList" enable-back-to-top scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" bindscroll="onPageScroll">
+    <view wx:for="{{carBrandList}}" wx:for-item="group" wx:key="{{group.id}}" id="{{ 'inTo'+group.id}}" data-id='{{group.id}}'>
+      <view class="address_top">{{group.region}}</view>
+      <view wx:for="{{group.items}}" wx:for-item="item" wx:key="{{item.prop_value_id}}">
+        <view class="address_bottom" bindtap="changeCarInput"  data-carCode='{{item.prop_value_id}}' data-carName='{{item.value_name}}'>
+          <image class="address_img" src="{{item.img_path}}"></image>
+          {{item.value_name}}
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 右侧字母导航 -->
+  <view class="orientation_region">
+    <view wx:for="{{carBrandList}}" wx:key="{{item.id}}">
+      <view class="orientation_city {{isActive==item.id ? 'active':'' }}" bindtap="scrollToViewFn" data-id="{{item.id}}">{{item.region}}</view>
+      </view>
+  </view>
+  <view class="carseries-box" hidden="{{carSeriesInfo == ''}}">
+    <view class="back-carseries">
+      <view bindtap="backRight" class="back-btn"></view>
+    </view>
+    <view class="carseries-ul" hidden="{{carTypesInfo != ''}}">
+      <view class="carseries-list" wx:for="{{carSeriesInfo}}" wx:key="{{item.prop_value_id}}" bindtap="bingcarseries"  data-serviceCode="{{item.prop_value_id}}" data-serviceName="{{item.value_name}}">{{item.value_name}}</view>
+    </view>
+    <view class="cartype-ul" hidden="{{carTypesInfo == ''}}">
+     <view class="carseries-list" wx:for="{{carTypesInfo}}" wx:key="{{item.prop_value_id}}" data-typeCode="{{item.prop_value_id}}" data-typeName="{{item.value_name}}" bindtap="getCarName">{{item.value_name}}</view>
+    </view>
+  </view>
+</view>

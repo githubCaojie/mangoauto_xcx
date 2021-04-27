@@ -1,0 +1,110 @@
+/* pages/financialTool/result.wxss */
+.main{
+  margin: 25rpx;
+  background-color: #ffffff;
+  padding-bottom: 80rpx;
+}
+.name{
+  display: flex;
+  padding-top: 20rpx;
+}
+.name .nameicon{
+  width: 10rpx;
+  background-color: #28cc43;
+  height: 50rpx;
+}
+.name .nametext{
+  width: 680rpx;
+  font-size: 38rpx;
+  font-weight: 600;
+  margin-left: 10rpx;
+  line-height: 50rpx;
+}
+.namemsg{
+  color: red;
+  font-size: 26rpx;
+  margin: 10rpx;
+}
+.left {
+	width: 250rpx;
+	height: 250rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+  margin-left: 10rpx;
+}
+canvas{
+  width: 247rpx;
+  height: 247rpx
+}
+.right{
+  width: 420rpx;
+  margin-left: 20rpx;
+}
+.right .ul .li{
+  display: flex;
+  font-size: 30rpx;
+  line-height: 45rpx;
+  color: #666;
+  position: relative;
+}
+.right .ul .li .a{
+  display: flex;
+}
+.right .ul .li .a .icon{
+  width: 26rpx;
+  height: 26rpx;
+  margin: 10rpx;
+}
+.right .ul .li .b{
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+}
+.white {
+	width: 136rpx;
+	height: 136rpx;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 10;
+	background-color: #fff;
+	transform: translate(-50%, -50%);
+}
+.result{
+  display: flex;
+}
+.total{
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: right;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+.bottom{
+  width: 660rpx;
+  display: flex;
+  box-shadow: 0px 0px 18rpx 2rpx #cecece;
+  margin: 40rpx auto 0;
+}
+.bottom .li{
+  width: 220rpx;
+  text-align: center;
+  margin: 40rpx 0;
+  border-right: 1rpx solid #dbdbdb
+}
+.bottom .li:last-child{
+  border: none
+}
+.li-name{
+  color: #666;
+  font-weight: 600;
+  line-height: 50rpx;
+  font-size: 32rpx;
+}
+.li-main{
+  color: #ff3333;
+  font-size: 30rpx;
+}

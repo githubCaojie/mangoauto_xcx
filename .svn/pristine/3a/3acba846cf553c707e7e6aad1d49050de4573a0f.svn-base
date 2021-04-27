@@ -1,0 +1,32 @@
+<!--pages/carOrderList/carOrderList.wxml-->
+<block wx:if='{{carOrderListArray.data == "" ? false : true }}'>
+    <view class="orderlist mt24" wx:for="{{carOrderListArray.data}}" data-orderid="{{item.orderId}}" bindtap="goToOrderDetail">
+        <view class="orderlisttile padding24">
+            <view class="orderhao">{{item.orderCreateTime}}</view>
+            <view class="orderzt">{{item.statusCodeName}}</view>
+        </view>
+        <block>
+            <view class="orderlistcont lastitem">
+                <image src="{{item.picUrl}}" class="mr16"></image>
+                <view class="orderlisc">
+                    <view class="ordername">{{item.itemName}}</view>
+                    <view class="ordersize">
+                        <block>
+                          {{item.propsName}}
+                        </block>
+                    </view>
+                    <view>￥{{item.price}}</view>
+                </view>
+            </view>
+            
+        </block>
+    </view>
+</block>
+
+<!--无订单-->
+<view class='null-content' wx:if='{{carOrderListArray.data == "" ? true : false }}'>
+    <image src='../../images/no-order.png'></image>
+    <text>还没有相关订单哦</text>
+    <input type="text" bindinput="queryOrderMobileInput" value="{{queryOrderMobile}}" placeholder="输入手机号码查询订单"></input>
+    <button type="warn" hover-class="other-button-hover" bindtap="queryOrderHandle">查询</button>
+</view>
