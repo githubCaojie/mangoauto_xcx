@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "selectcartype": "/components/selectcartype/selectcartype"
-  },
-  "navigationBarTitleText": "芒果汽车经纪人"
-}

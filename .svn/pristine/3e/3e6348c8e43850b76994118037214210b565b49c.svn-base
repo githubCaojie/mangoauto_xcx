@@ -1,3 +1,0 @@
-<!--pages/getmobile/getmobile.wxml-->
-<button class='pop_btn' plain="true" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取用户手机号</button>
-<button bindtap="wxlogin">wxlogin</button>

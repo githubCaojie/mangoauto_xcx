@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "店铺简介",
-    "usingComponents": {
-        "vshoptab": "/components/vshoptab/vshoptab"
-    }
-}

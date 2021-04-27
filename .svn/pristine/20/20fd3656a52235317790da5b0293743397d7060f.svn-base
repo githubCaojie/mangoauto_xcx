@@ -1,6 +1,0 @@
-<!--pages/outurl/outurl.wxml-->
-<view class="outurl" hidden="{{showUrlBtn}}">
-  <view class="title">欢迎来到芒果汽车</view>
-  <view class="label"><view>点击“立即体验”,获取底价</view>并由专业顾问提供一对一购车咨询</view>
-  <button type="primary" class="btn" plain="false" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">立即体验</button>
-</view>
